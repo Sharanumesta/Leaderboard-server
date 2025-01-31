@@ -3,7 +3,9 @@ import cors from 'cors';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: "https://dainty-trifle-c79423.netlify.app"
+}));
 app.use(express.json());
 
 import userRouter from './routes/user.router.js';
