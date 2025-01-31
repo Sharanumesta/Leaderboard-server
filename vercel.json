@@ -11,11 +11,6 @@
         "src": "/(.*)",
         "dest": "/src/index.js"
       }
-    ],
-    "env": {
-      "PORT": "8080",
-      "MONGODB_URI": "@MONGODB_URI",
-      "DB_NAME": "@DB_NAME"
-    }
+    ]
   }
   
