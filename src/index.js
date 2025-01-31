@@ -2,17 +2,16 @@ import dotenv from 'dotenv';
 import connectDB from './db/db.js';
 import { app } from './app.js';
 
-dotenv.config({ path: './.env'});
+dotenv.config({ path: './.env' });
 
-connectDB().then(() => {
-    app.on("error", (err) => {
-        console.log("ERROR :", err);
-        throw err;
-    });
-    
-    app.listen(process.env.PORT,() => {
-        console.log(`🚀 Server is running at ${process.env.PORT}`);
-    });
-}).catch((err) => {
-    console.log("MongoDB connection failed !!!", err);
-});
+const handler = async (req, res) => {
+  try {
+    await connectDB();
+    app(req, res);
+  } catch (error) {
+    console.error("MongoDB connection failed:", error);
+    res.status(500).send('Error while connecting to the database');
+  }
+};
+
+export default handler;
