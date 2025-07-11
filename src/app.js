@@ -4,7 +4,7 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors({
-    origin: "https://dainty-trifle-c79423.netlify.app"
+    origin: "https://leaderboard-sharanu.netlify.app/"
 }));
 app.use(express.json());
 
